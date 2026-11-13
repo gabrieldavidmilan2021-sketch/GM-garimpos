@@ -303,6 +303,72 @@ header {
     margin-bottom: 25px;
 }
 
+.estampas {
+    padding: clamp(52px, 8vw, 88px) clamp(16px, 4vw, 25px);
+    background: #080808;
+}
+
+.estampas-grid {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: clamp(14px, 2.5vw, 22px);
+}
+
+.estampa-card {
+    min-width: 0;
+    padding: clamp(10px, 2vw, 16px);
+    border: 1px solid #292929;
+    border-radius: 10px;
+    background: #171717;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.estampa-card:hover {
+    transform: translateY(-5px);
+    border-color: #f4b400;
+}
+
+.imagem-estampa {
+    position: relative;
+    display: flex;
+    aspect-ratio: 4 / 3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+    border-radius: 7px;
+    background: linear-gradient(135deg, #242424, #0a0a0a);
+}
+
+.imagem-estampa img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imagem-estampa i {
+    color: #f4b400;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.imagem-estampa span {
+    padding: 0 8px;
+    color: #aaaaaa;
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+.estampa-card h3 {
+    margin-top: 12px;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+}
+
 .botao-comprar,
 .botao-continuar {
     display: inline-flex;
@@ -780,6 +846,39 @@ footer .slogan {
         font-size: clamp(0.72rem, 3vw, 0.85rem);
     }
 
+    .estampas {
+        padding: 42px 14px;
+    }
+
+    .estampas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .estampa-card {
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    .imagem-estampa {
+        aspect-ratio: 1 / 1;
+        gap: 6px;
+    }
+
+    .imagem-estampa i {
+        font-size: clamp(1.5rem, 7vw, 2.2rem);
+    }
+
+    .imagem-estampa span {
+        font-size: clamp(0.58rem, 2.5vw, 0.72rem);
+        line-height: 1.2;
+    }
+
+    .estampa-card h3 {
+        margin-top: 8px;
+        font-size: clamp(0.78rem, 3.2vw, 0.95rem);
+    }
+
     .produto:hover,
     .botao-orcamento:hover,
     .redes a:hover {
@@ -840,6 +939,22 @@ footer .slogan {
 
     .produto p {
         font-size: 0.68rem;
+    }
+
+    .estampas {
+        padding-inline: 14px;
+    }
+
+    .estampas-grid {
+        gap: 8px;
+    }
+
+    .estampa-card {
+        padding: 6px;
+    }
+
+    .estampa-card h3 {
+        font-size: 0.78rem;
     }
 
     .botao-comprar {
