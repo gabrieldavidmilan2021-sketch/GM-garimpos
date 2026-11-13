@@ -66,62 +66,110 @@
 
         <div class="produtos">
 
-            <div class="produto">
+            <article class="produto">
                 <div class="imagem-produto">
-                    <i class="fa-solid fa-shirt"></i>
+                    <!-- Adicione a foto em img/camiseta-personalizada.jpg -->
+                    <!-- <img src="img/camiseta-personalizada.jpg" alt="Camiseta personalizada"> -->
+                    <i class="fa-solid fa-shirt" aria-hidden="true"></i>
+                    <span>Adicione a foto do produto</span>
                 </div>
 
-                <h3>Camisetas Personalizadas</h3>
+                <h3>Camiseta personalizada</h3>
+                <p>Uma camiseta feita com a sua arte, estampa ou identidade.</p>
+                <button class="botao-comprar" type="button" data-produto="Camiseta personalizada">
+                    Comprar
+                </button>
+            </article>
 
-                <p>
-                    Crie sua própria camiseta com sua arte,
-                    logo ou estampa favorita.
-                </p>
-
-                <a href="https://wa.me/5511981599583" target="_blank">
-                    Solicitar orçamento
-                </a>
-            </div>
-
-
-            <div class="produto">
+            <article class="produto">
                 <div class="imagem-produto">
-                    <i class="fa-solid fa-person-running"></i>
+                    <!-- Adicione a foto em img/regata-personalizada.jpg -->
+                    <!-- <img src="img/regata-personalizada.jpg" alt="Regata personalizada"> -->
+                    <i class="fa-solid fa-person-running" aria-hidden="true"></i>
+                    <span>Adicione a foto do produto</span>
                 </div>
 
-                <h3>Roupas Esportivas</h3>
+                <h3>Regata personalizada</h3>
+                <p>Personalize sua regata com cores e estampas do seu jeito.</p>
+                <button class="botao-comprar" type="button" data-produto="Regata personalizada">
+                    Comprar
+                </button>
+            </article>
 
-                <p>
-                    Uniformes e roupas esportivas personalizadas
-                    para equipes e grupos.
-                </p>
-
-                <a href="https://wa.me/5511981599583" target="_blank">
-                    Solicitar orçamento
-                </a>
-            </div>
-
-
-            <div class="produto">
+            <article class="produto">
                 <div class="imagem-produto">
-                    <i class="fa-solid fa-medal"></i>
+                    <!-- Adicione a foto em img/cropped-personalizado.jpg -->
+                    <!-- <img src="img/cropped-personalizado.jpg" alt="Cropped personalizado"> -->
+                    <i class="fa-solid fa-shirt" aria-hidden="true"></i>
+                    <span>Adicione a foto do produto</span>
                 </div>
 
-                <h3>Produtos de Capoeira</h3>
+                <h3>Cropped personalizado</h3>
+                <p>Um modelo personalizado para combinar com o seu estilo.</p>
+                <button class="botao-comprar" type="button" data-produto="Cropped personalizado">
+                    Comprar
+                </button>
+            </article>
 
-                <p>
-                    Camisas, calças e produtos personalizados
-                    para quem vive a capoeira.
-                </p>
+            <article class="produto">
+                <div class="imagem-produto">
+                    <!-- Adicione a foto em img/calca-capoeira.jpg -->
+                    <!-- <img src="img/calca-capoeira.jpg" alt="Calça de capoeira"> -->
+                    <i class="fa-solid fa-person" aria-hidden="true"></i>
+                    <span>Adicione a foto do produto</span>
+                </div>
 
-                <a href="https://wa.me/5511981599583" target="_blank">
-                    Solicitar orçamento
-                </a>
-            </div>
+                <h3>Calça de capoeira</h3>
+                <p>Calça para acompanhar seus treinos e rodas de capoeira.</p>
+                <button class="botao-comprar" type="button" data-produto="Calça de capoeira">
+                    Comprar
+                </button>
+            </article>
 
         </div>
 
     </section>
+
+    <dialog class="modal-compra" id="modal-compra" aria-labelledby="titulo-modal-compra">
+        <form class="formulario-compra" id="formulario-compra">
+            <button class="fechar-modal" type="button" aria-label="Fechar formulário">&times;</button>
+
+            <span class="modal-etiqueta">QUASE LÁ</span>
+            <h2 id="titulo-modal-compra">Continuar pelo WhatsApp</h2>
+            <p class="modal-descricao">Informe seus dados para enviarmos seu pedido.</p>
+
+            <p class="produto-selecionado">
+                Produto escolhido: <strong id="produto-selecionado"></strong>
+            </p>
+
+            <label for="nome-comprador">Seu nome</label>
+            <input
+                id="nome-comprador"
+                name="nome"
+                type="text"
+                autocomplete="name"
+                maxlength="100"
+                required>
+
+            <label for="cep-comprador">CEP</label>
+            <input
+                id="cep-comprador"
+                name="cep"
+                type="text"
+                inputmode="numeric"
+                autocomplete="postal-code"
+                placeholder="00000-000"
+                pattern="[0-9]{5}-?[0-9]{3}"
+                title="Digite um CEP com 8 números."
+                maxlength="9"
+                required>
+
+            <button class="botao-continuar" type="submit">
+                Continuar para o WhatsApp
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </button>
+        </form>
+    </dialog>
 
 
     <!-- SOBRE NÓS -->

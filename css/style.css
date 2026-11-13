@@ -236,6 +236,8 @@ header {
 
 .produto {
     min-width: 0;
+    display: flex;
+    flex-direction: column;
     background: #171717;
     border: 1px solid #292929;
     border-radius: 10px;
@@ -255,6 +257,10 @@ header {
 .imagem-produto {
     min-height: 140px;
     height: clamp(140px, 20vw, 170px);
+    position: relative;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
 
     display: flex;
     align-items: center;
@@ -266,9 +272,22 @@ header {
     margin-bottom: 25px;
 }
 
+.imagem-produto img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .imagem-produto i {
     font-size: 4rem;
     color: #f4b400;
+}
+
+.imagem-produto span {
+    color: #aaaaaa;
+    font-size: 0.85rem;
 }
 
 .produto h3 {
@@ -278,21 +297,171 @@ header {
 }
 
 .produto p {
+    flex-grow: 1;
     color: #aaaaaa;
     line-height: 1.6;
     margin-bottom: 25px;
 }
 
-.produto a {
-    color: #f4b400;
+.botao-comprar,
+.botao-continuar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 6px;
+    background: #f4b400;
+    color: #080808;
+    font: inherit;
+    font-weight: bold;
+    text-align: center;
     text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-comprar {
+    width: 100%;
+}
+
+.botao-comprar:hover,
+.botao-continuar:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+.botao-comprar:focus-visible,
+.botao-continuar:focus-visible,
+.fechar-modal:focus-visible {
+    outline: 3px solid #f4b400;
+    outline-offset: 3px;
+}
+
+.modal-compra {
+    width: min(100% - 32px, 480px);
+    max-width: 480px;
+    max-height: min(90vh, 760px);
+    max-height: min(90svh, 760px);
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid #393939;
+    border-radius: 14px;
+    background: #171717;
+    color: white;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+}
+
+.modal-compra::backdrop {
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(4px);
+}
+
+.formulario-compra {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: clamp(24px, 6vw, 36px);
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.fechar-modal:hover {
+    background: #292929;
+}
+
+.modal-etiqueta {
+    color: #f4b400;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.formulario-compra h2 {
+    max-width: calc(100% - 24px);
+    font-size: clamp(1.45rem, 5vw, 1.8rem);
+    line-height: 1.2;
+}
+
+.modal-descricao {
+    color: #bbbbbb;
+    line-height: 1.5;
+}
+
+.produto-selecionado {
+    padding: 12px;
+    border-radius: 6px;
+    background: #222222;
+    color: #cccccc;
+    line-height: 1.5;
+}
+
+.produto-selecionado strong {
+    color: #f4b400;
+}
+
+.formulario-compra label {
+    margin-top: 4px;
     font-weight: bold;
 }
 
-.produto a:hover {
+.formulario-compra input {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    background: #0e0e0e;
     color: white;
+    font: inherit;
 }
 
+.formulario-compra input:focus {
+    border-color: #f4b400;
+    outline: 2px solid rgba(244, 180, 0, 0.25);
+}
+
+.formulario-compra input::placeholder {
+    color: #888888;
+}
+
+.botao-continuar {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.botao-continuar i {
+    font-size: 1.3rem;
+}
+
+.botao-comprar:disabled,
+.botao-continuar:disabled {
+    cursor: wait;
+    opacity: 0.7;
+    transform: none;
+}
+
+.botao-comprar:active,
+.botao-continuar:active {
+    transform: translateY(0);
+}
 
 /* =========================
    SOBRE NÓS
