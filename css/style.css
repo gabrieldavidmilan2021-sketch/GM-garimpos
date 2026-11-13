@@ -280,6 +280,30 @@ header {
     object-fit: cover;
 }
 
+.imagem-produto.imagem-com-foto {
+    display: block;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: auto;
+    overflow: visible;
+    background: transparent;
+}
+
+.imagem-produto.imagem-com-foto img,
+.imagem-estampa.imagem-com-foto img {
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.imagem-com-foto i,
+.imagem-com-foto span {
+    display: none;
+}
+
 .imagem-produto i {
     font-size: 4rem;
     color: #f4b400;
@@ -312,12 +336,15 @@ header {
     max-width: 1150px;
     margin: auto;
     display: grid;
+    align-items: start;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
     gap: clamp(14px, 2.5vw, 22px);
 }
 
 .estampa-card {
     min-width: 0;
+    display: flex;
+    flex-direction: column;
     padding: clamp(10px, 2vw, 16px);
     border: 1px solid #292929;
     border-radius: 10px;
@@ -352,6 +379,13 @@ header {
     object-fit: cover;
 }
 
+.imagem-estampa.imagem-com-foto {
+    display: block;
+    aspect-ratio: auto;
+    overflow: visible;
+    background: transparent;
+}
+
 .imagem-estampa i {
     color: #f4b400;
     font-size: clamp(2rem, 5vw, 3rem);
@@ -367,6 +401,10 @@ header {
 .estampa-card h3 {
     margin-top: 12px;
     font-size: clamp(0.95rem, 2vw, 1.1rem);
+}
+
+.estampa-card .botao-comprar {
+    margin-top: 12px;
 }
 
 .botao-comprar,
