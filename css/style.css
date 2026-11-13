@@ -8,14 +8,31 @@
     box-sizing: border-box;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 20px;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #080808;
     color: white;
+    min-width: 320px;
+    overflow-x: hidden;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible {
+    outline: 3px solid #f4b400;
+    outline-offset: 4px;
 }
 
 
@@ -34,18 +51,19 @@ header {
 
 .navbar {
     max-width: 1200px;
-    height: 85px;
+    min-height: 85px;
     margin: auto;
-    padding: 0 25px;
+    padding: 10px 25px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 24px;
 }
 
 .logo img {
-    width: 70px;
-    height: 70px;
+    width: clamp(52px, 6vw, 70px);
+    height: clamp(52px, 6vw, 70px);
     object-fit: contain;
     border-radius: 50%;
 }
@@ -53,10 +71,15 @@ header {
 .menu {
     display: flex;
     list-style: none;
-    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 2.5vw, 30px);
 }
 
 .menu a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -73,7 +96,9 @@ header {
 ========================= */
 
 .banner {
-    min-height: 570px;
+    min-height: clamp(460px, 72vh, 720px);
+    min-height: clamp(460px, 72svh, 720px);
+    padding: clamp(48px, 8vw, 90px) 20px;
 
     display: flex;
     align-items: center;
@@ -87,7 +112,7 @@ header {
             rgba(0, 0, 0, 0.58),
             rgba(0, 0, 0, 0.72)
         ),
-        url("../img/banner.png"),
+        url("../img/baner.png"),
         radial-gradient(circle at center, #2b230b, #080808 70%);
     background-position: center;
     background-size: cover;
@@ -95,27 +120,22 @@ header {
 }
 
 .banner-conteudo {
-    max-width: 750px;
-    padding: 40px 20px;
-}
-
-.destaque {
-    color: #f4b400;
-    letter-spacing: 4px;
-    font-weight: bold;
-    margin-bottom: 15px;
+    width: min(100%, 1100px);
+    padding: 20px 0;
 }
 
 .banner h1 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: clamp(2.5rem, 9vw, 6rem);
+    line-height: 1.08;
     margin-bottom: 20px;
     text-transform: uppercase;
+    overflow-wrap: break-word;
 }
 
 .banner h1::after {
     content: "";
     display: block;
-    width: 120px;
+    width: min(120px, 30vw);
     height: 4px;
     background: #f4b400;
     margin: 20px auto;
@@ -123,7 +143,7 @@ header {
 
 .banner p {
     color: #cccccc;
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
     line-height: 1.7;
     margin-bottom: 35px;
 }
@@ -134,9 +154,12 @@ header {
 .botao-orcamento {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 
-    padding: 17px 30px;
+    min-height: 52px;
+    max-width: 100%;
+    padding: 14px clamp(18px, 4vw, 30px);
 
     background: #f4b400;
     color: #080808;
@@ -144,6 +167,8 @@ header {
     text-decoration: none;
     font-weight: bold;
     border-radius: 6px;
+    text-align: center;
+    overflow-wrap: anywhere;
 
     transition: 0.3s;
 }
@@ -165,7 +190,8 @@ header {
 
 .titulo-secao {
     text-align: center;
-    margin-bottom: 50px;
+    max-width: 760px;
+    margin: 0 auto clamp(35px, 6vw, 50px);
 }
 
 .titulo-secao span,
@@ -179,8 +205,10 @@ header {
 .titulo-secao h2,
 .sobre h2,
 .contato h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    line-height: 1.2;
     margin: 15px 0;
+    overflow-wrap: anywhere;
 }
 
 .titulo-secao p {
@@ -193,7 +221,7 @@ header {
 ========================= */
 
 .catalogo {
-    padding: 100px 25px;
+    padding: clamp(56px, 9vw, 100px) clamp(16px, 4vw, 25px);
     background: #101010;
 }
 
@@ -202,16 +230,17 @@ header {
     margin: auto;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(16px, 3vw, 25px);
 }
 
 .produto {
+    min-width: 0;
     background: #171717;
     border: 1px solid #292929;
     border-radius: 10px;
 
-    padding: 30px;
+    padding: clamp(20px, 4vw, 30px);
     text-align: center;
 
     transition: 0.3s;
@@ -224,7 +253,8 @@ header {
 }
 
 .imagem-produto {
-    height: 170px;
+    min-height: 140px;
+    height: clamp(140px, 20vw, 170px);
 
     display: flex;
     align-items: center;
@@ -243,6 +273,8 @@ header {
 
 .produto h3 {
     margin-bottom: 15px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
 }
 
 .produto p {
@@ -267,7 +299,7 @@ header {
 ========================= */
 
 .sobre {
-    padding: 110px 25px;
+    padding: clamp(60px, 10vw, 110px) clamp(16px, 4vw, 25px);
 
     background:
         radial-gradient(
@@ -278,7 +310,7 @@ header {
 }
 
 .sobre-texto {
-    max-width: 1000px;
+    width: min(100%, 1000px);
     margin: auto;
     text-align: center;
 }
@@ -291,15 +323,16 @@ header {
 }
 
 .qualidades {
-    margin-top: 60px;
+    margin-top: clamp(35px, 6vw, 60px);
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+    gap: clamp(12px, 3vw, 30px);
 }
 
 .qualidades div {
-    padding: 25px;
+    min-width: 0;
+    padding: clamp(16px, 3vw, 25px);
 }
 
 .qualidades i {
@@ -322,7 +355,7 @@ header {
 ========================= */
 
 .contato {
-    padding: 90px 25px;
+    padding: clamp(56px, 9vw, 90px) clamp(16px, 4vw, 25px);
     text-align: center;
     background: #111111;
 }
@@ -342,8 +375,10 @@ header {
 .redes a {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 
+    min-height: 48px;
     padding: 14px 25px;
 
     border: 1px solid #f4b400;
@@ -372,14 +407,16 @@ header {
 
 footer {
     background: #050505;
-    padding: 40px 20px;
+    padding: clamp(32px, 6vw, 40px) 20px;
 
     text-align: center;
     border-top: 2px solid #f4b400;
 }
 
 footer img {
-    width: 90px;
+    width: clamp(68px, 12vw, 90px);
+    height: auto;
+    margin-inline: auto;
     border-radius: 50%;
     margin-bottom: 15px;
 }
@@ -387,6 +424,8 @@ footer img {
 footer p {
     color: #888888;
     margin: 8px 0;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
 }
 
 footer .slogan {
@@ -402,11 +441,11 @@ footer .slogan {
 .whatsapp-flutuante {
     position: fixed;
 
-    bottom: 25px;
-    right: 25px;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    right: max(16px, env(safe-area-inset-right));
 
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
 
     display: flex;
     align-items: center;
@@ -417,7 +456,7 @@ footer .slogan {
 
     border-radius: 50%;
 
-    font-size: 2rem;
+    font-size: 1.8rem;
 
     text-decoration: none;
 
@@ -438,38 +477,122 @@ footer .slogan {
    RESPONSIVIDADE
 ========================= */
 
-@media (max-width: 800px) {
+@media (max-width: 760px) {
 
     .navbar {
-        height: auto;
-        padding: 15px 20px;
         flex-direction: column;
-        gap: 15px;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 16px;
     }
 
     .menu {
-        gap: 15px;
-        flex-wrap: wrap;
+        width: min(100%, 460px);
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4px;
         justify-content: center;
     }
 
     .menu a {
-        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+        padding: 4px;
+        font-size: clamp(0.72rem, 2.3vw, 0.9rem);
+        text-align: center;
     }
 
-    .produtos {
-        grid-template-columns: 1fr;
-        max-width: 450px;
+    .banner {
+        min-height: clamp(440px, 70vh, 640px);
+        min-height: clamp(440px, 70svh, 640px);
+    }
+}
+
+@media (max-width: 520px) {
+
+    .banner {
+        min-height: 440px;
+        padding-inline: 16px;
     }
 
-    .qualidades {
-        grid-template-columns: 1fr;
+    .destaque {
+        line-height: 1.5;
     }
 
-    .titulo-secao h2,
-    .sobre h2,
-    .contato h2 {
+    .banner p {
+        margin-bottom: 26px;
+    }
+
+    .botao-orcamento {
+        width: min(100%, 340px);
+    }
+
+    .produto:hover,
+    .botao-orcamento:hover,
+    .redes a:hover {
+        transform: none;
+    }
+
+    .redes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+    }
+
+    .redes a {
+        padding: 12px 14px;
+    }
+
+    .whatsapp-flutuante {
+        width: 52px;
+        height: 52px;
+        font-size: 1.65rem;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .navbar {
+        padding-inline: 10px;
+    }
+
+    .menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 300px;
+    }
+
+    .menu a {
+        font-size: 0.85rem;
+    }
+
+    .catalogo,
+    .sobre,
+    .contato {
+        padding-inline: 14px;
+    }
+
+    .banner h1 {
         font-size: 2rem;
     }
+}
 
+@media (max-height: 480px) and (orientation: landscape) {
+
+    .banner {
+        min-height: 390px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
