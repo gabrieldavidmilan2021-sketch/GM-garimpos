@@ -1,3 +1,0 @@
-git add .
-git commit -m "Atualiza o site"
-git push
