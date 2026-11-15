@@ -11,18 +11,61 @@ const formularioCompra = document.querySelector("#formulario-compra");
 const nomeComprador = document.querySelector("#nome-comprador");
 const cepComprador = document.querySelector("#cep-comprador");
 const produtoSelecionado = document.querySelector("#produto-selecionado");
+const produtoDaFicha = document.querySelector("#produto-da-ficha");
+const tecidoProduto = document.querySelector("#tecido-produto");
+const tamanhoProduto = document.querySelector("#tamanho-produto");
+const tamanhoSelecionado = document.querySelector("#tamanho-selecionado");
+const etapaFicha = document.querySelector("#etapa-ficha");
+const etapaDados = document.querySelector("#etapa-dados");
+const etiquetaEtapaCompra = document.querySelector("#etapa-compra-etiqueta");
+const tituloEtapaCompra = document.querySelector("#titulo-modal-compra");
+const descricaoEtapaCompra = document.querySelector("#descricao-etapa-compra");
 const botoesComprar = document.querySelectorAll(".botao-comprar");
 const botaoFecharModal = document.querySelector(".fechar-modal");
+const botaoAvancarParaDados = document.querySelector("#avancar-para-dados");
+const botaoVoltarParaFicha = document.querySelector("#voltar-para-ficha");
+
+const mostrarEtapaCompra = fichaAtiva => {
+    etapaFicha.hidden = !fichaAtiva;
+    etapaDados.hidden = fichaAtiva;
+
+    etiquetaEtapaCompra.textContent = fichaAtiva ? "FICHA TÉCNICA" : "ETAPA 2 DE 2";
+    tituloEtapaCompra.textContent = fichaAtiva
+        ? "Confira os detalhes do produto"
+        : "Continuar pelo WhatsApp";
+    descricaoEtapaCompra.textContent = fichaAtiva
+        ? "Confira as informações e escolha o tamanho desejado."
+        : "Informe seus dados para enviarmos seu pedido.";
+};
 
 botoesComprar.forEach(botao => {
     botao.addEventListener("click", () => {
         produtoSelecionado.textContent = botao.dataset.produto;
+        produtoDaFicha.textContent = botao.dataset.produto;
+        tecidoProduto.textContent = botao.dataset.tecido;
         formularioCompra.reset();
         nomeComprador.setCustomValidity("");
         cepComprador.setCustomValidity("");
+        tamanhoSelecionado.textContent = "";
+        mostrarEtapaCompra(true);
         modalCompra.showModal();
-        nomeComprador.focus();
+        tamanhoProduto.focus();
     });
+});
+
+botaoAvancarParaDados.addEventListener("click", () => {
+    if (!tamanhoProduto.reportValidity()) {
+        return;
+    }
+
+    tamanhoSelecionado.textContent = tamanhoProduto.value;
+    mostrarEtapaCompra(false);
+    nomeComprador.focus();
+});
+
+botaoVoltarParaFicha.addEventListener("click", () => {
+    mostrarEtapaCompra(true);
+    tamanhoProduto.focus();
 });
 
 botaoFecharModal.addEventListener("click", () => {
@@ -72,6 +115,7 @@ formularioCompra.addEventListener("submit", evento => {
     const mensagem = [
         "Olá! Quero comprar este produto:",
         `Produto: ${produtoSelecionado.textContent}`,
+        `Tamanho: ${tamanhoProduto.value}`,
         `Nome: ${nome}`,
         `CEP: ${cep.slice(0, 5)}-${cep.slice(5)}`
     ].join("\n");

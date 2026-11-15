@@ -445,6 +445,7 @@ header {
 
 .botao-comprar:focus-visible,
 .botao-continuar:focus-visible,
+.botao-voltar:focus-visible,
 .fechar-modal:focus-visible {
     outline: 3px solid #f4b400;
     outline-offset: 3px;
@@ -476,6 +477,35 @@ header {
     flex-direction: column;
     gap: 12px;
     padding: clamp(24px, 6vw, 36px);
+}
+
+.etapa-compra {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.etapa-compra[hidden] {
+    display: none;
+}
+
+.detalhes-ficha {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 14px;
+    border-left: 4px solid #f4b400;
+    background: #222222;
+}
+
+.detalhes-ficha dt {
+    color: #bbbbbb;
+    font-size: 0.85rem;
+}
+
+.detalhes-ficha dd {
+    margin: 4px 0 0;
+    line-height: 1.5;
 }
 
 .fechar-modal {
@@ -543,7 +573,23 @@ header {
     font: inherit;
 }
 
+.formulario-compra select {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    background: #0e0e0e;
+    color: white;
+    font: inherit;
+}
+
 .formulario-compra input:focus {
+    border-color: #f4b400;
+    outline: 2px solid rgba(244, 180, 0, 0.25);
+}
+
+.formulario-compra select:focus {
     border-color: #f4b400;
     outline: 2px solid rgba(244, 180, 0, 0.25);
 }
@@ -555,6 +601,30 @@ header {
 .botao-continuar {
     width: 100%;
     margin-top: 8px;
+}
+
+.acoes-etapa-compra {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.botao-voltar {
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    background: #222222;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-voltar:hover {
+    border-color: #f4b400;
+    background: #292929;
 }
 
 .botao-continuar i {
@@ -1137,6 +1207,8 @@ footer .slogan {
 a:focus-visible,
 .botao-comprar:focus-visible,
 .botao-continuar:focus-visible,
+.botao-voltar:focus-visible,
+.formulario-compra select:focus-visible,
 .fechar-modal:focus-visible {
     outline-color: #ff6875;
 }
@@ -1328,13 +1400,50 @@ footer img {
     background: #0b0b0f;
 }
 
+.formulario-compra select {
+    border: 2px solid #51434a;
+    border-radius: 0;
+    background: #0b0b0f;
+}
+
 .formulario-compra input:focus {
+    border-color: var(--arcade-red);
+    outline-color: #ff263844;
+}
+
+.formulario-compra select:focus {
     border-color: var(--arcade-red);
     outline-color: #ff263844;
 }
 
 .formulario-compra input::placeholder {
     color: #9b8e93;
+}
+
+.detalhes-ficha {
+    border-left-color: var(--arcade-red);
+    background: #211a20;
+}
+
+.detalhes-ficha dd {
+    color: #f7f2f2;
+}
+
+.botao-voltar {
+    border: 2px solid #51434a;
+    border-radius: 0;
+    background: #15141a;
+    color: #f7f2f2;
+    box-shadow: 3px 3px 0 #050507;
+    font-family: "Press Start 2P", "Courier New", monospace;
+    font-size: 0.58rem;
+    line-height: 1.8;
+    text-transform: uppercase;
+}
+
+.botao-voltar:hover {
+    border-color: #ff6674;
+    background: #39121a;
 }
 
 .sobre {
