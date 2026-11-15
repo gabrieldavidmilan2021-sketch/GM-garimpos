@@ -1,3 +1,13 @@
+const PRECO_PRODUTO = 69.90;
+const precoFormatado = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+}).format(PRECO_PRODUTO);
+
+document.querySelectorAll("[data-preco-produto]").forEach(elemento => {
+    elemento.textContent = precoFormatado;
+});
+
 const links = document.querySelectorAll(".menu a");
 
 links.forEach(link => {
@@ -13,6 +23,7 @@ const cepComprador = document.querySelector("#cep-comprador");
 const produtoSelecionado = document.querySelector("#produto-selecionado");
 const produtoDaFicha = document.querySelector("#produto-da-ficha");
 const tecidoProduto = document.querySelector("#tecido-produto");
+const precoProduto = document.querySelector("#preco-produto");
 const tamanhoProduto = document.querySelector("#tamanho-produto");
 const tamanhoSelecionado = document.querySelector("#tamanho-selecionado");
 const etapaFicha = document.querySelector("#etapa-ficha");
@@ -43,6 +54,7 @@ botoesComprar.forEach(botao => {
         produtoSelecionado.textContent = botao.dataset.produto;
         produtoDaFicha.textContent = botao.dataset.produto;
         tecidoProduto.textContent = botao.dataset.tecido;
+        precoProduto.textContent = precoFormatado;
         formularioCompra.reset();
         nomeComprador.setCustomValidity("");
         cepComprador.setCustomValidity("");
@@ -115,6 +127,7 @@ formularioCompra.addEventListener("submit", evento => {
     const mensagem = [
         "Olá! Quero comprar este produto:",
         `Produto: ${produtoSelecionado.textContent}`,
+        `Preço: ${precoFormatado}`,
         `Tamanho: ${tamanhoProduto.value}`,
         `Nome: ${nome}`,
         `CEP: ${cep.slice(0, 5)}-${cep.slice(5)}`

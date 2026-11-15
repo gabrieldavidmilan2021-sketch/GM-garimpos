@@ -333,6 +333,14 @@ header {
     margin-bottom: 25px;
 }
 
+.produto .preco-produto {
+    flex-grow: 0;
+    margin-bottom: 16px;
+    color: #f4b400;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
 .estampas {
     padding: clamp(52px, 8vw, 88px) clamp(16px, 4vw, 25px);
     background: #080808;
