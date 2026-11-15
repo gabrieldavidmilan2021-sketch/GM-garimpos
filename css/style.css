@@ -112,7 +112,7 @@ header {
             rgba(0, 0, 0, 0.58),
             rgba(0, 0, 0, 0.72)
         ),
-        url("../img/baner.png"),
+        url("../img/baner.jpeg"),
         radial-gradient(circle at center, #2b230b, #080808 70%);
     background-position: center;
     background-size: cover;
@@ -122,6 +122,12 @@ header {
 .banner-conteudo {
     width: min(100%, 1100px);
     padding: 20px 0;
+}
+
+.banner-logo {
+    width: clamp(120px, 32vw, 360px);
+    height: auto;
+    margin: 0 auto 24px;
 }
 
 .banner h1 {
@@ -762,7 +768,7 @@ footer .slogan {
     .menu {
         width: min(100%, 460px);
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 4px;
         justify-content: center;
     }
@@ -776,8 +782,7 @@ footer .slogan {
     }
 
     .banner {
-        min-height: clamp(380px, 62vh, 520px);
-        min-height: clamp(380px, 62svh, 520px);
+        min-height: clamp(300px, 65vw, 500px);
         background-position: center;
     }
 }
@@ -785,9 +790,8 @@ footer .slogan {
 @media (max-width: 520px) {
 
     .banner {
-        min-height: clamp(360px, 58vh, 480px);
-        min-height: clamp(360px, 58svh, 480px);
-        padding: 38px 16px;
+        min-height: clamp(260px, 68vw, 360px);
+        padding: clamp(24px, 7vw, 38px) 16px;
         background-position: center;
         background-size: cover;
     }
@@ -1019,5 +1023,344 @@ footer .slogan {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* Tema arcade pixel art */
+:root {
+    color-scheme: dark;
+    --arcade-red: #ff2638;
+    --arcade-red-dark: #9c0b1c;
+    --arcade-black: #08080b;
+    --arcade-panel: #15151b;
+    --arcade-border: #4a2028;
+    --arcade-text: #f7f2f2;
+}
+
+body {
+    background-color: var(--arcade-black);
+    background-image:
+        linear-gradient(rgba(255, 38, 56, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 38, 56, 0.035) 1px, transparent 1px),
+        radial-gradient(ellipse at 50% 0, #241016, transparent 60%);
+    background-size: 16px 16px, 16px 16px, auto;
+    color: var(--arcade-text);
+    font-family: "VT323", "Courier New", monospace;
+    font-size: 20px;
+}
+
+header .menu a,
+.banner h1,
+.titulo-secao h2,
+.sobre h2,
+.contato h2,
+.produto h3,
+.estampa-card h3,
+.qualidades h3,
+.botao-orcamento,
+.botao-comprar,
+.botao-continuar,
+.modal-etiqueta,
+.formulario-compra h2,
+.redes a,
+footer .slogan {
+    font-family: "Press Start 2P", "Courier New", monospace;
+}
+
+.menu a {
+    font-size: 0.58rem;
+    line-height: 1.8;
+}
+
+.banner h1 {
+    max-width: 100%;
+    font-size: clamp(1.2rem, 4vw, 2.4rem);
+    line-height: 1.7;
+}
+
+.titulo-secao h2,
+.sobre h2,
+.contato h2,
+.formulario-compra h2 {
+    font-size: clamp(0.85rem, 2.2vw, 1.15rem);
+    line-height: 1.8;
+}
+
+.produto h3,
+.estampa-card h3 {
+    font-size: 0.68rem;
+    line-height: 1.8;
+}
+
+.qualidades h3 {
+    font-size: 0.62rem;
+    line-height: 1.8;
+}
+
+.botao-orcamento,
+.botao-comprar,
+.botao-continuar,
+.redes a {
+    font-size: 0.58rem;
+    line-height: 1.8;
+}
+
+.titulo-secao span,
+.sobre span,
+.modal-etiqueta {
+    font-size: 0.58rem;
+    line-height: 1.8;
+}
+
+footer .slogan {
+    font-size: 0.62rem;
+    line-height: 1.8;
+}
+
+a:focus-visible,
+.botao-comprar:focus-visible,
+.botao-continuar:focus-visible,
+.fechar-modal:focus-visible {
+    outline-color: #ff6875;
+}
+
+header {
+    background: #08080b;
+    border-bottom: 3px solid var(--arcade-red);
+    box-shadow: 0 4px 0 #510914, 0 8px 20px #0009;
+}
+
+.logo img,
+footer img {
+    border: 2px solid var(--arcade-red);
+    border-radius: 0;
+    box-shadow: 4px 4px 0 #640b19;
+}
+
+.menu a {
+    padding-inline: 8px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.menu a:hover {
+    color: #ff6875;
+    text-shadow: 2px 2px 0 #680b19, 0 0 10px #ff263877;
+}
+
+.banner {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.78)),
+        url("../img/baner.jpeg"),
+        radial-gradient(circle at center, #3a1018, #08080b 70%);
+}
+
+.banner h1 {
+    color: #fff;
+    text-shadow: 4px 4px 0 #8e0b1b, 7px 7px 0 #08080b;
+    letter-spacing: 0.04em;
+}
+
+.banner h1::after {
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--arcade-red) 0 12px, #740b19 12px 16px);
+    box-shadow: 3px 3px 0 #08080b;
+}
+
+.banner p {
+    color: #e0d5d7;
+}
+
+.botao-orcamento,
+.botao-comprar,
+.botao-continuar {
+    border: 2px solid #ff6674;
+    border-radius: 0;
+    background: linear-gradient(180deg, #ff3c4d, #c70f25);
+    color: #fff;
+    box-shadow: 4px 4px 0 #620b18, inset 0 2px 0 #ffffff35;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.botao-orcamento:hover,
+.botao-comprar:hover,
+.botao-continuar:hover {
+    background: linear-gradient(180deg, #ff6573, #e01730);
+    box-shadow: 2px 2px 0 #620b18, inset 0 2px 0 #ffffff35;
+}
+
+.titulo-secao span,
+.sobre span,
+.modal-etiqueta {
+    color: #ff5262;
+    text-shadow: 2px 2px 0 #5c0b17;
+}
+
+.titulo-secao h2,
+.sobre h2,
+.contato h2 {
+    text-shadow: 3px 3px 0 #720d1c;
+}
+
+.titulo-secao p,
+.produto p,
+.sobre-texto > p,
+.contato > p {
+    color: #bdb4b7;
+}
+
+.catalogo,
+.contato {
+    background-color: #101015;
+    background-image: linear-gradient(rgba(255, 38, 56, 0.025) 1px, transparent 1px);
+    background-size: 16px 16px;
+}
+
+.produto,
+.estampa-card {
+    border: 2px solid var(--arcade-border);
+    border-radius: 0;
+    background: linear-gradient(145deg, #1d1b21, #101014);
+    box-shadow: 5px 5px 0 #050507;
+}
+
+.produto:hover,
+.estampa-card:hover {
+    border-color: var(--arcade-red);
+    box-shadow: 5px 5px 0 #730c1b, 0 0 16px #ff263830;
+}
+
+.imagem-produto,
+.imagem-estampa {
+    border: 2px solid #343039;
+    border-radius: 0;
+    background: repeating-linear-gradient(135deg, #21181d 0 8px, #141318 8px 16px);
+}
+
+.imagem-produto i,
+.imagem-estampa i,
+.qualidades i {
+    color: #ff4052;
+}
+
+.imagem-produto span,
+.imagem-estampa span {
+    color: #c9bec2;
+}
+
+.estampas {
+    background-color: #09090c;
+    background-image:
+        linear-gradient(rgba(255, 38, 56, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 38, 56, 0.03) 1px, transparent 1px);
+    background-size: 16px 16px;
+}
+
+.modal-compra {
+    border: 2px solid var(--arcade-red);
+    border-radius: 0;
+    background: #15141a;
+    box-shadow: 8px 8px 0 #650b19, 0 24px 80px #000b;
+}
+
+.modal-compra::backdrop {
+    background: rgba(0, 0, 0, 0.84);
+}
+
+.fechar-modal {
+    border-radius: 0;
+}
+
+.fechar-modal:hover {
+    background: #39121a;
+}
+
+.produto-selecionado {
+    border-left: 4px solid var(--arcade-red);
+    border-radius: 0;
+    background: #211a20;
+    color: #e3dadd;
+}
+
+.produto-selecionado strong {
+    color: #ff5262;
+}
+
+.formulario-compra input {
+    border: 2px solid #51434a;
+    border-radius: 0;
+    background: #0b0b0f;
+}
+
+.formulario-compra input:focus {
+    border-color: var(--arcade-red);
+    outline-color: #ff263844;
+}
+
+.formulario-compra input::placeholder {
+    color: #9b8e93;
+}
+
+.sobre {
+    background:
+        linear-gradient(rgba(8, 8, 11, 0.88), rgba(8, 8, 11, 0.92)),
+        repeating-linear-gradient(0deg, #251016 0 2px, #08080b 2px 4px);
+}
+
+.qualidades div {
+    border: 1px solid #3c2027;
+    background: #111015;
+    box-shadow: 4px 4px 0 #050507;
+}
+
+.qualidades p {
+    color: #bdb4b7;
+}
+
+.redes a {
+    border: 2px solid var(--arcade-red-dark);
+    border-radius: 0;
+    background: #151218;
+    box-shadow: 3px 3px 0 #050507;
+}
+
+.redes a:hover {
+    border-color: #ff6674;
+    background: var(--arcade-red);
+    color: #fff;
+    box-shadow: 2px 2px 0 #620b18;
+}
+
+footer {
+    border-top: 3px solid var(--arcade-red);
+    background: #070709;
+    box-shadow: 0 -4px 0 #510914;
+}
+
+footer p {
+    color: #a89da2;
+}
+
+footer .slogan {
+    color: #ff5262;
+}
+
+.whatsapp-flutuante {
+    border: 2px solid #ff6674;
+    border-radius: 0;
+    background: linear-gradient(180deg, #ff3c4d, #c70f25);
+    color: #fff;
+    box-shadow: 4px 4px 0 #620b18;
+}
+
+.whatsapp-flutuante:hover {
+    background: #ff5262;
+    box-shadow: 2px 2px 0 #620b18;
+}
+
+@media (max-width: 760px) {
+    .menu a {
+        padding-inline: 4px;
     }
 }
